@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>205427211129-s16skr7867g36raak4rjh44piqp5smkj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.205427211129-s16skr7867g36raak4rjh44piqp5smkj</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>205427211129-0d1f7ebuhk6109mn4pfmoct5gl6gvs30.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCEAw9Wpi40Bj-x1FkpAGfJOP7D6KJ08Tg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>205427211129</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.lenteslat</string>
+	<key>PROJECT_ID</key>
+	<string>lenteslat</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lenteslat.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:205427211129:ios:59dc029d667d3fdce64da8</string>
+</dict>
+</plist>

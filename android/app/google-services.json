@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "205427211129",
+    "project_id": "lenteslat",
+    "storage_bucket": "lenteslat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205427211129:android:c4f07c35df4b1de0e64da8",
+        "android_client_info": {
+          "package_name": "com.lenteslat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205427211129-0d1f7ebuhk6109mn4pfmoct5gl6gvs30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lenteslat",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "205427211129-8c96c5cm0ghi8h1lnb0hp3of74vmrg2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDs49hisrFY3Oj0ec-6A6m5xxwEQei2iss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205427211129-8c96c5cm0ghi8h1lnb0hp3of74vmrg2s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "205427211129-s16skr7867g36raak4rjh44piqp5smkj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lenteslat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
