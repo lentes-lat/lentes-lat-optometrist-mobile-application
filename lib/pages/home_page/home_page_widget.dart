@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -97,9 +98,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: SizedBox(
                   width: 40.0,
                   height: 40.0,
-                  child: SpinKitFoldingCube(
-                    color: FlutterFlowTheme.of(context).primary,
-                    size: 40.0,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      FlutterFlowTheme.of(context).primary,
+                    ),
                   ),
                 ),
               );
@@ -157,8 +159,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             );
                                           },
                                           child: Container(
-                                            width: 60.0,
-                                            height: 60.0,
+                                            width: 50.0,
+                                            height: 50.0,
                                             clipBehavior: Clip.antiAlias,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
@@ -169,79 +171,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ),
                                         ),
                                       ),
-                                      Align(
-                                        alignment:
-                                            AlignmentDirectional(0.0, 0.0),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 0.0, 20.0, 0.0),
-                                          child: Switch.adaptive(
-                                            value: _model.switchValue ??= true,
-                                            onChanged: (newValue) async {
-                                              setState(() => _model
-                                                  .switchValue = newValue!);
-                                              if (newValue!) {
-                                                var _shouldSetState = false;
-                                                _model.apiResult39d =
-                                                    await SetOptometristOnlineCall
-                                                        .call(
-                                                  available: 'Y',
-                                                  token: currentJwtToken,
-                                                );
-                                                _shouldSetState = true;
-                                                if ((_model.apiResult39d
-                                                        ?.succeeded ??
-                                                    true)) {
-                                                  context.pushNamed('homePage');
-
-                                                  if (_shouldSetState)
-                                                    setState(() {});
-                                                  return;
-                                                }
-                                                if (_shouldSetState)
-                                                  setState(() {});
-                                              } else {
-                                                _model.apiResultyzf =
-                                                    await SetOptometristOnlineCall
-                                                        .call(
-                                                  available: 'N',
-                                                  token: currentJwtToken,
-                                                );
-                                                if ((_model.apiResultyzf
-                                                        ?.succeeded ??
-                                                    true)) {
-                                                  context.pushNamed(
-                                                    'OfflinePage',
-                                                    extra: <String, dynamic>{
-                                                      kTransitionInfoKey:
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .scale,
-                                                        alignment: Alignment
-                                                            .bottomCenter,
-                                                      ),
-                                                    },
-                                                  );
-                                                }
-
-                                                setState(() {});
-                                              }
-                                            },
-                                            activeColor: Color(0xFF4DE7BD),
-                                            activeTrackColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .accent1,
-                                            inactiveTrackColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .alternate,
-                                            inactiveThumbColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondaryText,
-                                          ),
+                                      RatingBarIndicator(
+                                        itemBuilder: (context, index) => Icon(
+                                          Icons.star_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
                                         ),
+                                        direction: Axis.horizontal,
+                                        rating: 3.0,
+                                        unratedColor:
+                                            FlutterFlowTheme.of(context)
+                                                .accent3,
+                                        itemCount: 5,
+                                        itemSize: 25.0,
                                       ),
                                     ],
                                   ),
@@ -254,7 +196,66 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 30.0, 0.0, 0.0),
+                                0.0, 40.0, 0.0, 0.0),
+                            child: Switch.adaptive(
+                              value: _model.switchValue ??= true,
+                              onChanged: (newValue) async {
+                                setState(() => _model.switchValue = newValue!);
+                                if (newValue!) {
+                                  var _shouldSetState = false;
+                                  _model.apiResult39d =
+                                      await SetOptometristOnlineCall.call(
+                                    available: 'Y',
+                                    token: currentJwtToken,
+                                  );
+                                  _shouldSetState = true;
+                                  if ((_model.apiResult39d?.succeeded ??
+                                      true)) {
+                                    context.pushNamed('homePage');
+
+                                    if (_shouldSetState) setState(() {});
+                                    return;
+                                  }
+                                  if (_shouldSetState) setState(() {});
+                                } else {
+                                  _model.apiResultyzf =
+                                      await SetOptometristOnlineCall.call(
+                                    available: 'N',
+                                    token: currentJwtToken,
+                                  );
+                                  if ((_model.apiResultyzf?.succeeded ??
+                                      true)) {
+                                    context.pushNamed(
+                                      'OfflinePage',
+                                      extra: <String, dynamic>{
+                                        kTransitionInfoKey: TransitionInfo(
+                                          hasTransition: true,
+                                          transitionType:
+                                              PageTransitionType.scale,
+                                          alignment: Alignment.bottomCenter,
+                                        ),
+                                      },
+                                    );
+                                  }
+
+                                  setState(() {});
+                                }
+                              },
+                              activeColor: Color(0xFF4DE7BD),
+                              activeTrackColor:
+                                  FlutterFlowTheme.of(context).accent1,
+                              inactiveTrackColor:
+                                  FlutterFlowTheme.of(context).alternate,
+                              inactiveThumbColor:
+                                  FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 40.0, 0.0, 0.0),
                             child: wrapWithModel(
                               model: _model.mainLogoModel,
                               updateCallback: () => setState(() {}),
@@ -338,7 +339,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 9.0, 0.0, 0.0),
+                              5.0, 9.0, 0.0, 0.0),
                           child: FutureBuilder<ApiCallResponse>(
                             future: GetOptometristBalanceCall.call(
                               token: currentJwtToken,

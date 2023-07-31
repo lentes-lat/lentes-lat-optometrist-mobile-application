@@ -47,8 +47,8 @@ class _MainLogoWidgetState extends State<MainLogoWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
             child: Image.asset(
               'assets/images/logo4-4.png',
-              width: 140.0,
-              height: 60.0,
+              width: 80.0,
+              height: 35.0,
               fit: BoxFit.contain,
             ),
           ),

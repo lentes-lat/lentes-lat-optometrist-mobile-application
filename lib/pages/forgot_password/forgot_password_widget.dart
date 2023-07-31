@@ -61,7 +61,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
           ),
         ),
         title: Text(
-          'Forgot Password',
+          'Recuperar Contraseña',
           style: FlutterFlowTheme.of(context).headlineSmall,
         ),
         actions: [],
@@ -89,7 +89,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Enter the email associated with your account and we will send you a verification code.',
+                      'Ingresa el email asociado  a tu cuenta y te enviaremos un codigo de verificacion.',
                       style: FlutterFlowTheme.of(context).bodySmall,
                     ),
                   ),
@@ -102,9 +102,9 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                 controller: _model.emailAddressController,
                 obscureText: false,
                 decoration: InputDecoration(
-                  labelText: 'Email Address',
+                  labelText: 'Correo electronico',
                   labelStyle: FlutterFlowTheme.of(context).bodySmall,
-                  hintText: 'Enter your email...',
+                  hintText: 'Tu correo Electronico..',
                   hintStyle: FlutterFlowTheme.of(context).bodySmall,
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
@@ -163,7 +163,7 @@ class _ForgotPasswordWidgetState extends State<ForgotPasswordWidget> {
                     context: context,
                   );
                 },
-                text: 'Send Reset Link',
+                text: 'Enviar link de recuperacion',
                 options: FFButtonOptions(
                   width: 230.0,
                   height: 50.0,

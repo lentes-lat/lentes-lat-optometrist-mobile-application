@@ -209,7 +209,7 @@ class _OfflinePageWidgetState extends State<OfflinePageWidget> {
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                     child: Icon(
                       Icons.power_off_rounded,
                       color: FlutterFlowTheme.of(context).secondary,

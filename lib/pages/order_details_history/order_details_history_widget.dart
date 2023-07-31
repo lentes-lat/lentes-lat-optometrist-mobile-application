@@ -1,38 +1,35 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:map_launcher/map_launcher.dart' as $ml;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'order_details_model.dart';
-export 'order_details_model.dart';
+import 'order_details_history_model.dart';
+export 'order_details_history_model.dart';
 
-class OrderDetailsWidget extends StatefulWidget {
-  const OrderDetailsWidget({
+class OrderDetailsHistoryWidget extends StatefulWidget {
+  const OrderDetailsHistoryWidget({
     Key? key,
-    required this.currentOrderDetails,
+    required this.orderDetailHistory,
   }) : super(key: key);
 
-  final dynamic currentOrderDetails;
+  final dynamic orderDetailHistory;
 
   @override
-  _OrderDetailsWidgetState createState() => _OrderDetailsWidgetState();
+  _OrderDetailsHistoryWidgetState createState() =>
+      _OrderDetailsHistoryWidgetState();
 }
 
-class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
-  late OrderDetailsModel _model;
+class _OrderDetailsHistoryWidgetState extends State<OrderDetailsHistoryWidget> {
+  late OrderDetailsHistoryModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => OrderDetailsModel());
+    _model = createModel(context, () => OrderDetailsHistoryModel());
   }
 
   @override
@@ -163,7 +160,7 @@ class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
                                     children: [
                                       Text(
                                         getJsonField(
-                                          widget.currentOrderDetails,
+                                          widget.orderDetailHistory,
                                           r'''$.costumer''',
                                         ).toString(),
                                         style: FlutterFlowTheme.of(context)
@@ -203,7 +200,7 @@ class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
                             ),
                             Text(
                               getJsonField(
-                                widget.currentOrderDetails,
+                                widget.orderDetailHistory,
                                 r'''$.orderId''',
                               ).toString(),
                               style: FlutterFlowTheme.of(context)
@@ -238,7 +235,7 @@ class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
                             ),
                             Text(
                               getJsonField(
-                                widget.currentOrderDetails,
+                                widget.orderDetailHistory,
                                 r'''$.date''',
                               ).toString(),
                               style: FlutterFlowTheme.of(context)
@@ -316,7 +313,7 @@ class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
                           children: [
                             Text(
                               getJsonField(
-                                widget.currentOrderDetails,
+                                widget.orderDetailHistory,
                                 r'''$.address''',
                               ).toString(),
                               style: FlutterFlowTheme.of(context)
@@ -331,125 +328,7 @@ class _OrderDetailsWidgetState extends State<OrderDetailsWidget> {
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            100.0, 15.0, 0.0, 0.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            await launchMap(
-                              address: getJsonField(
-                                widget.currentOrderDetails,
-                                r'''$.address''',
-                              ).toString(),
-                              title: 'Direccion de cliente',
-                            );
-                          },
-                          text: 'Ver en el mapa',
-                          options: FFButtonOptions(
-                            height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 0.0, 24.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            0.0, 16.0, 0.0, 16.0),
-                        child: Divider(
-                          thickness: 2.0,
-                          color: Color(0xFFE5E7EB),
-                        ),
-                      ),
                     ],
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 10.0, 16.0, 10.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed(
-                        'prescriptionform',
-                        queryParameters: {
-                          'orderInfo': serializeParam(
-                            getJsonField(
-                              widget.currentOrderDetails,
-                              r'''$''',
-                            ),
-                            ParamType.JSON,
-                          ),
-                        }.withoutNulls,
-                      );
-                    },
-                    text: 'Enviar Prescripcion',
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 60.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).headlineSmall.override(
-                                fontFamily: 'Outfit',
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                      elevation: 3.0,
-                      borderRadius: BorderRadius.circular(50.0),
-                    ),
-                  ),
-                ),
-                FFButtonWidget(
-                  onPressed: () async {
-                    _model.apiResultdfp = await CancelOrderCall.call(
-                      orderId: getJsonField(
-                        widget.currentOrderDetails,
-                        r'''$.orderId''',
-                      ),
-                      token: currentJwtToken,
-                    );
-                    if ((_model.apiResultdfp?.succeeded ?? true)) {
-                      context.pushNamed('homePage');
-                    }
-
-                    setState(() {});
-                  },
-                  text: 'Cancelar Orden',
-                  options: FFButtonOptions(
-                    height: 40.0,
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                    iconPadding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'Outfit',
-                          color: Colors.white,
-                        ),
-                    elevation: 3.0,
-                    borderSide: BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
-                    ),
-                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ],

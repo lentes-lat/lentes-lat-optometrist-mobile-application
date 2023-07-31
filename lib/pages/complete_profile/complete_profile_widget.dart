@@ -615,8 +615,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget>
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('homePage');
+                          onPressed: () {
+                            print('Button-Login pressed ...');
                           },
                           text: 'Complete Profile',
                           options: FFButtonOptions(

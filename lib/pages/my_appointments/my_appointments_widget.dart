@@ -110,7 +110,18 @@ class _MyAppointmentsWidgetState extends State<MyAppointmentsWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed('appointmentDetails');
+                          context.pushNamed(
+                            'orderDetailsHistory',
+                            queryParameters: {
+                              'orderDetailHistory': serializeParam(
+                                getJsonField(
+                                  ordersItem,
+                                  r'''$''',
+                                ),
+                                ParamType.JSON,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,

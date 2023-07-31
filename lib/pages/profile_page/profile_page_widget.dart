@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -342,25 +341,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        'Ailments',
+                                        'Nivel',
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
                                             .bodySmall,
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 20.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Expanded(
-                                        child: AutoSizeText(
-                                          topSectionUsersRecord!.ailments,
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          GetOptometristInfoCall.level(
+                                            profilePageGetOptometristInfoResponse
+                                                .jsonBody,
+                                          ).toString(),
                                           style: FlutterFlowTheme.of(context)
-                                              .headlineSmall,
+                                              .bodyMedium,
                                         ),
                                       ),
                                     ],
@@ -368,33 +363,27 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 12.0, 0.0, 12.0),
+                                      0.0, 12.0, 20.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
-                                      Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Next Appointment',
-                                            textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodySmall,
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 4.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Aug 20, 2021',
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmall,
-                                            ),
-                                          ),
-                                        ],
+                                      Text(
+                                        'Penalidad',
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodySmall,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            10.0, 0.0, 0.0, 0.0),
+                                        child: Text(
+                                          GetOptometristInfoCall.penalty(
+                                            profilePageGetOptometristInfoResponse
+                                                .jsonBody,
+                                          ).toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
                                       ),
                                     ],
                                   ),

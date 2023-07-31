@@ -17,11 +17,11 @@ export '/pages/edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export '/pages/pagos/pagos_widget.dart' show PagosWidget;
 export '/pages/appointment_details_profile/appointment_details_profile_widget.dart'
     show AppointmentDetailsProfileWidget;
-export '/pages/ordersacceptance/ordersacceptance_widget.dart'
-    show OrdersacceptanceWidget;
 export '/pages/order_acceptance/order_acceptance_widget.dart'
     show OrderAcceptanceWidget;
 export '/pages/prescriptionform/prescriptionform_widget.dart'
     show PrescriptionformWidget;
 export '/pages/order_details/order_details_widget.dart' show OrderDetailsWidget;
 export '/pages/offline_page/offline_page_widget.dart' show OfflinePageWidget;
+export '/pages/order_details_history/order_details_history_widget.dart'
+    show OrderDetailsHistoryWidget;
